@@ -1,0 +1,49 @@
+h1,h2 {
+    text-align: center;
+    color: #000000
+}
+
+h3 {
+    font-size: 20px;
+    margin: 8px;
+    text-align: left;
+    color: #000000
+}
+
+body {
+    font-family: Gotham
+}
+
+.main {
+    background-color: #B6AEA1;
+    border-radius: 20px;
+    color: Black;
+    padding: 10px;
+}
+
+
+.section {
+    background-color: #CBCBC1;
+    padding: 4px;
+    margin: 10px;
+    border-radius: 4px;
+    color: black;
+}
+
+
+/* Enloses snippets of code in white to make code easier to view */
+code {
+    color: #333;
+    background-color: #eaeaea;
+    border: 1px solid #dcdcdc;
+    padding: 0 0.25em;
+    font-family: Inconsolata, monospace;
+}
+
+/* used to display large block of code, so all code elements within pre element are displayed in one block */
+
+pre code {
+    display: block;
+    padding: 0.5em;
+    margin: 0 0 1em;
+}

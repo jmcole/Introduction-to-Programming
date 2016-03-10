@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet"  type="text/css"  href="main.css">
+  <title>John's Notes</title>
+</head>
+<body>
+  <h1>Webpages, Documents, and Structure</h1>
+  <main class="main">
+    <article><!-- Lesson 1  -->
+      <h2>The Basics of the Web and HTML</h2>
+        <section class="section">
+          <div>
+            <h3><b>How the Web Works</b></h3>
+            <em>Hyper Text Markup Language</em> is the language of the internet. HTML is interpreted by a computer's broswer. These documents reside on servers. When a user accesses a webpage their computer sends an HTTP request to the server. The server finds the document and sends it across the internet where it is interpreted by the user's browser. The web is a collection of HTML documents. There are approximately 30 billion pages on the World Wide Web.
+          </div>
+          <div>
+            <h3><b>HTML Makeup</b></h3>
+            <ul>
+              <li>Text Content- "What you see"</li>
+              <li>Markup- "What it looks like" refrences to other documents e.g. images and video and links to other pages.</li>
+              <li>Element-An element is comprised of an opening tag, content, and a closing tag.</li>
+            </ul>
+          </div>
+          <div>
+            <h3><b>HTML Attributes</b></h3>
+            <ul>
+              <li>Tag Attribute<code>&lt; tag attribute="value" &gt; contents&lt;/tag&gt;</code></li>
+              <li>Anchor Tag <code>&lt;a&gt;</code>- creates a link</li>
+              <li>Creating a link <code>&lt;a href="www.reddit.com" &gt;derp&lt;/a&gt;</code>
+              <a href="www.reddit.com">derp</a></li>
+              <li> image tag- <code>&lt;img&gt;&lt;img src="url of image" alt="text"&gt;</code></li>
+            </ul>
+          </div>
+          <div>
+            <h3><b>White Space</b></h3>
+            <ul>
+              <li>HTML renders all whitespace as a single space</li>
+              <li><code>&lt;br&gt;</code> break (void tag does not need close)</li>
+              <li><code>&lt;p&gt; </code>paragraph tag<code>&lt;/p&gt;</code>(Requires Close)</li>
+            </ul>
+          </div>
+          <div>
+            <h3><b>Inline vs. Block</b></h3>
+            <ul>
+              <li><code>&lt;br&gt;</code>tag is inline</li>
+              <li><code>&lt;p&gt;</code> tag is a block element. It creates an "invisible box" around the content.</li>
+              <li><code>&lt;span&gt;</code><code>&lt;/span&gt;</code>- inline</li>
+              <li><code>&lt;div&gt;</code><code>&lt;/div&gt;</code>- block</li>
+            </ul>
+          </div>
+          <div>
+            <h3><b>HTML Documents</b></h3>
+            <ul>
+              <li>Head- contains title and metadata, CSS, and Javascript</li>
+              <li>Body- contains content</li>
+            </ul>
+          </div>
+        </section>
+    </article><!-- Lesson 1-->
+    <article><!--Lesson 2-->
+      <h2>Creating a Structured Document with HTML</h2>
+        <section class ="section">
+          <div>
+            <h3><b>Tree Structure of HTML</b></h3>
+            <ul>
+              <li>HTML has a tree like structure, wth elements nested inside other elements. Link to <a href="http://en.wikipedia.org/wiki/Tree_structure">Wikipedia article on Tree Structure</a>. When programmers talk about the DOM(Document Object Model) they are talking about the tree like structure of a web page.</li>
+              <li>HTML controls the "structure" of the web page</li>
+              <li>CSS controls the "style" of a page (How it looks)</li>
+              <li>CSS helps web designers avoid repetition. Avoiding repetition helps to keep code "clean" and more easily modifiable.</li>
+              <li>Boxes- webpages are composed of "boxes". &lt;div&gt; tag defines boxes. Class attributes are the labels on boxes.
+            </ul>
+          </div>
+          <div>
+            <h3><b>Avoiding Repetition</b></h3>
+            <ul>
+              <li>Avoiding errors-The less you do it, the less chance you have of making errors.</li>
+              <li>Consistency-Reducing repetition makes pages more consistent and easier to change.
+            </ul>
+          </div>
+          <div>
+            <h3><b>Text Editors and Dev Tools</b></h3>
+            <ul>
+              <li><a href="http://Scratchpad.io">Scratchpad</a></li>
+              <li><a href="http://codepen.io">Codepen</a></li>
+              <li><a href="www.sublimetext.com">Sublime</a></li>
+              <li>Web Browsers contain developer tools that allow access to web page coding
+            </ul>
+          </div>
+        </section>
+    </article><!--Lesson 2-->
+    <article><!--Lesson 3-->
+      <h2>Adding CSS Style to HTML Structure</h2>
+        <section class="section">
+          <div>
+            <h3><b>Understanding CSS</b></h3>
+              CSS is code written to control the "style" of HTML elements.
+              <pre><code class="code">
+              h1 {
+              background-color : black;
+              color: white;
+              }
+              </code></pre>
+            <code>h1</code> is a <b>selector</b>. This tells the broweser what to apply the rules too. The rules are between the <code>{}</code> braces.<code>background-color : black</code> is a <b>rule</b>. <code>background-color</code> is an <b>attribute</b> and <code>black</code> is the <b>value</b> of that attribute.
+            <p> To add style to specific <code>h1</code> or other element use <b>class selectors</b>. Class selectors are written in the format <code>.class-name</code><p>
+          </div><!--Understanding CSS-->
+          <div>
+          <h3><b>Adding CSS to a webpage</b></h3>
+          CSS can be added in three ways.
+          <ol>
+            <li>Write CSS in the <code>&lt;head&gt;</code> of your HTML. Best for small projects and testing.
+            <li>Link your HTML to a separate CSS file. Most organized method and best for larger projects.
+            <ol>
+             <li>Write all of your structural HTML in one file (let's call it <code>main.html</code>).
+             <li>In a separate file (let's call it <code>main.css</code>), put all of your CSS code.
+             <li>Add a <code>&lt;head&gt;</code> element to the top of your HTML.
+             <li>Add a <code>&lt;link&gt;</code> tag inside the <code>&lt;head&gt;</code> element. Since <code>&lt;link&gt;</code> is a "void tag" you don't need to add a closing <code>&lt;/link&gt;</code>.
+             <li>Add the following attributes to your <code>&lt;link rel="stylesheet"  type="text/css"  href="main.css"&gt;</code>
+            </ol>
+            <li>Write your style inline with your HTML- This results in a lot of repeated code.
+          </ol>
+          <h3><b>Box Sizing</b></h3>
+          HTML is comprised of boxes. Boxes have 4 components and because of this it can be hard to get sizing correct. There are two techniques to get sizing correct.
+          <ol>
+            <li>Set sizes in terms of percents rather than pixels.</li>
+            <li>Set the box-sizing attribute to border-box for every element.</li>
+          </ol>
+          <h3><b>Box Positioning</b></h3>
+          <ol>
+              <li>Divs are <b>block elements</b> (as opposed to inline), so by default they take up the entire width of a page.</li>
+              <li>Adding the rule <code>display: flex;</code> to the appropriate CSS will override this behavior and let divs appear next to each other.</li>
+          </ol>
+          </div><!--Add>ing CSS to a webpage-->
+        </section>
+    </article><!--end of Lesson 3-->
+  </main>
+</body>
+
