@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+{% autoescape true %}
+<html>
+<head>
+  <link rel="stylesheet"  type="text/css"  href="/stylesheets/main.css">
+  <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>John's Notes</title>
+</head>
+    <nav>
+	<ul><!--Nav menu based on tutorial http://www.adam-bray.com/blog/91/easy-html-5-css-3-navigation-menu/-->
+		<li><a href="/">Home</a></li>
+		<li>
+      <a href="/">Notes <span class="caret"></span></a>
+			<div>
+				<ul>
+					<li><a href="/Lesson_1">Lesson 1</a></li>
+					<li><a href="/Lesson_2">Lesson 2</a></li>
+					<li><a href="/Lesson_3">Lesson 3</a></li>
+          <li><a href="/Lesson_4">Lesson 4</a></li>
+          <li><a href="/Lesson_5">Lesson 5</a></li>
+				</ul>
+			</div>
+		</li>
+		<li><a href="comments">Comments</a></li>
+		<li><a href="add_res">Additional Learning</a></li>
+    <li><a href="cyclemap">Cycle Route API</a></li>
+	</ul>
+</nav>
+	<body class="main">
+		{% block content %}
+		{% endblock %}
+	</body>
+</html>
+{% endautoescape %}

@@ -1,0 +1,172 @@
+{% extends "templates/base.html" %}
+{% block content %}
+
+<header class="header">
+  <h1>Choose Your Next Steps</h1>
+</header>
+  <article>
+    <h2 class="section-title">Meet Javascript</h2>
+      <section class="section">
+        <div>
+          <h3><b>Introduction to Javascript</b></h3>
+          Javascript is the programming language of the web. Java runs natively in webbrowsers
+        </div>
+        <h3><b>Adding JavaScript to a Web Page</b></h3>
+          <ol>
+            <li>Add JavaScript in between <code>&ltscript&gt&lt/script&gt</code> tags <a href = http://www.w3schools.com/js/tryit.asp?filename=tryjs_whereto_head>Example</a></li>
+
+            <li>Add JavaScript in a seperate .js file. <a href ="http://javascript.info/tutorial/adding-script-html#external-scripts">Example</a></li>
+          </ol>
+        <h3><b>Declaring a Variable</b></h3>
+        <pre>
+          <code>
+            var firstName = "John";
+          </code>
+        </pre>
+        <div>
+        <h3><b>String Methods</b></h3>
+        String Replace <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/replace">Documentation</a>
+        <pre>
+          <code>
+            [string].replace([old],[new])
+          </code>
+        </pre>
+        </div>
+        More string methods<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String"> here.</a>
+        <div>
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/O7rZJdtG10g?list=PLAwxTw4SYaPmtf5v3hefG5seVynUtV9T8" frameborder="0" allowfullscreen></iframe>
+        </div
+        <div>
+        <h3><b>JSON</b></h3>
+        <b>J</b>avaScript <b>O</b>bject <b>N</b>otation. JSON is a popular and simple format for storing and transferring nested or hierarchal data.
+        <p><b>JSON Resources</b></p>
+        <ul>
+          <li><a href="http://json.org>JSON Website"</a></li>
+          <li>JSON <a href="http://jsonlint.com>Lint website"</a> used to validate JSON</li>
+          <li>JSON <a href="http://www.copterlabs.com/blog/json-what-it-is-how-it-works-how-to-use-it">Overview</a></li>
+        </ul>
+        </div>
+        <div>
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/d7Wqlgz48UY" frameborder="0" allowfullscreen></iframe>
+        </div>
+      </section>
+  </article><!--Lesson 5.1-->
+  <article>
+    <h2 class="section-title">The Power of API's</h2>
+      <section class="section">
+        <div>
+          <h3><b>API's</b></h3>
+          <b>A</b>pplication <b>P</b>rogramming <b>I</b>nterface's are a set of programming tools or instructions that allow
+          a programmer to build a software application.
+          <h3><b>Parsing XML</b></h3>
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/aC6n9RR8piQ" frameborder="0" allowfullscreen></iframe>
+          <br><a href="https://docs.python.org/2/library/xml.dom.minidom.html">MiniDOM Documentation</a>
+        </div>
+        <div>
+        <h3><b>Utilizing API's</b></h3>
+        API's allow a programmer to take adavantage of an application and utilize it in new and innovative ways.
+        <a href="https://www.publicapis.com/">List</a> of public API's
+        </div>
+        <div>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/0fci8DJp60Y" frameborder="0" allowfullscreen></iframe>
+        </div>
+
+  </article><!--Lesson 5.2-->
+  <article>
+    <h2 class="section-title">Recursion and Parallel Computing</h2>
+      <section class="section">
+        <div>
+          <h3><b>Recursion</b></h3>
+        </div>
+        <div>
+          <b>Recursive Definition</b>
+          <pre>
+            "When we write a method for solving a particular problem, one of the basic design techniques is to break the task into smaller subtasks. For example, the problem of adding (or multiplying) n consecutive integers can be reduced to a problem of adding (or multiplying) n-1consecutive integers:
+                        1 + 2 + 3 +... + n = n + [1 + 2 + 3 + .. + (n-1)]
+
+                        1 * 2 * 3 *... * n = n * [1 * 2 * 3 * .. * (n-1)]
+            Therefore, if we introduce a method sumR(n) (or timesR(n)) that adds (or multiplies) integers from 1 to n, then the above arithmetics can be rewritten as
+                        sumR(n) = n + sumR(n-1)
+
+                        timesR(n) = n * timesR(n-1)
+            Such functional definition is called a <b>recursive definition</b>, since the definition contains a call to itself. On each recursive call the argument of sumR(n) (or timesR(n)) gets smaller by one. It takes n-1 calls until we reach the <b>base case</b> - this is a part of a definition that does not make a call to itself. Each recursive definition requires base cases in order to prevent infinite recursion.
+            In the following example we provide iterative and recursive implementations for the addition and multiplication of n natural numbers."<a href=https://www.cs.cmu.edu/~adamchik/15-121/lectures/Recursions/recursions.html>Recursive Programming</a>
+          </pre>
+        <b>Recursive Example</b>
+        <div>
+          <pre>
+            <code>
+              def is_palindrome(s):
+                  if s == '':
+                  else:
+                    if s[0] == s[-1]:
+                        return is_palindrome
+                    else:
+                        return False
+            </code>
+          </pre>
+        </div>
+        <b>Iterative Example</b>
+        <div>
+          <pre>
+            <code>
+              def iter_palindrome(s):
+                  for i in range(0, len(s) / 2):
+                      if s[i] != s[-(i + 1)]:
+                          return False
+                  return True
+            </code>
+          </pre>
+        </div>
+        <div>
+          <h3><b>Parallel Computing</b></h3>
+        Parallel computing operates on the principle that large problems can be broken down into smaller ones and processed
+        simulataneously.
+        </div>
+        <div>
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/trDuPnmO8Y8" frameborder="0" allowfullscreen></iframe>
+        </div>
+  </article><!--Lesson 5.3-->
+  <article>
+    <h2 class="section-title">Solving Big Problems</h2>
+      <section class="section">
+        <div>
+          <h3><b>Code, Test, Design</b></h3>
+        </div>
+        <div>
+        In the programing example in this lesson, the following method is used to break down and solve the problem.
+        </div>
+        <div>
+          <ol>
+            <li>He took time to really understand what the problem is and broke it into smaller pieces.</li>
+            <li>He went through each piece to see if it felt like something he could solve.</li>
+            <li>He convinced himself that since each of those pieces are things he thinks he could solve, he will be able to solve the entire problem.</li>
+            <li>He acknowledged the size of the problem and mentally prepared himself.</li>
+            <li>He wrote a function to solve one piece of the problem.</li>
+            <li>He used that function and was unhappy with the results.</li>
+            <li>He wrote tests for the function so he'd know if future changes caused any problems.</li>
+          </ol>
+        </div>
+  </article><!--Lesson 5.4-->
+  <article>
+    <h2 class="section-title">Making Web Pages Look Good</h2>
+      <section class="section">
+        <div>
+          <h3><b>Responsive Web Design</b></h3>
+        </div>
+        <div>
+          Using Chrome Dev Tools to Emulate differant Devices
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/sDcglPBR34Q" frameborder="0" allowfullscreen></iframe>
+        </div>
+        <div>
+          <h3><b>Emulators and Simulators</b></h3>
+          Emulators and simulators allow a programmer to test out differant devices without actually purchasing all of those devices.
+          <ul>
+            <li><a href="https://www.browserstack.com/">BrowserStack</a> is a tool that allows developers to emulate differant browsers.</li>
+          </ul>
+          <div>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/DBv_sU-mgVU" frameborder="0" allowfullscreen></iframe>
+          </div>
+  </article>
+
+{% endblock %}

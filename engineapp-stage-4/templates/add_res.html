@@ -1,0 +1,95 @@
+{% extends "templates/base.html" %}
+{% block content %}
+<header class="header">
+  <h1>Additional Learning</h1>
+</header>
+<main>
+  <article>
+    <h2 class="section-title">API's</h2>
+    <section class="section">
+      <div>
+        <h3><b>Google Map's API</b></h3>
+        I focused my additional learning on API's. API's give a web developer
+        a huge amount of power. Google Maps and Google Earth are an application I have used a lot,
+        so I was excited to see if I could develop an application to use it. Google Maps API is actually a set
+        of many API's. My <a href="/cyclemap">Cycle Route</a> application uses the JavaScript API and the Geocode API
+        to allow a web user to search for cycling routes.
+        <p><b>Google JavaScriptAPI</b></p>
+        <a href="https://developers.google.com/maps/documentation/javascript/tutorial">Google Map's JavascriptAPI Example</a></li>
+      </div>
+      The Google JavaScript tutorial describes the API in detail and provides examples of how
+      the API can be used.
+
+      First, an html document is created that will contain the map. The map is
+      intitialzed in the document with the following code.
+
+      <pre>
+        <code>
+          &ltscript src="/scripts/cyclemap.js"%gt&lt/script&gt
+          &ltscript src="https://maps.googleapis.com/maps/api/js?signed_in=true&callback=initMap"&gt
+        </code>
+      </pre>
+        Google's example used an inline script. I modified my application to use an external script at <code>/scripts</code>
+      <div>
+      The following is Google's simple map example. This has been modified
+      to work in my application by changing the Lat/Long coordinates to center at my home city.
+      I also changed the zoom to a distance that clearly showed the biking paths. This is explained in detail at
+      <a href="https://developers.google.com/maps/documentation/javascript/maptypes#TileCoordinates">Tile Coordinates</a>.
+      This page also explains how the map overlay works. This is the layer that is added on top of the default map which
+      shows the cycling paths for an area. The <a href="https://developers.google.com/maps/documentation/javascript/examples/layer-bicycling">Bicycling Layer<a/> is
+        also explained on its own seperate page.
+      </article>
+      <pre>
+        <code>
+            function initMap() {
+            var map = new google.maps.Map(document.getElementById('map'), {
+              zoom: 14,
+              center: {lat: 39.965765, lng: -86.021091}
+            });
+        </code>
+      </pre>
+      </div>
+
+      <div>
+        <p><b>Google Geocode</b></p>
+        <a href="https://developers.google.com/maps/documentation/javascript/geocoding">Google Map's Geocode Services</a></li>
+        Geocoding is the process of converting addresses into geographic coordinates. Since I wanted my application to be user
+        searchable using a location, this would be a necessary component. The <a href="https://developers.google.com/maps/documentation/javascript/examples/geocoding-simple">Simple Geocode Example</a>
+        is what I modeled my code after. This code simply creates an object from the user input and passes it to the Google Geocode server.
+        This is returned from the server as <code>geometry.location</code> which contains the Lat/Long coordinates for the user input. This is used to update the map.
+        <pre>
+          <code>
+                var geocoder = new google.maps.Geocoder();
+
+                document.getElementById('submit').addEventListener('click', function() {
+                  geocodeAddress(geocoder, map);
+                });
+                var bikeLayer = new google.maps.BicyclingLayer();
+                bikeLayer.setMap(map);
+              }
+
+              function geocodeAddress(geocoder, resultsMap) {
+                var address = document.getElementById('address').value;
+                geocoder.geocode({'address': address}, function(results, status) {
+                  if (status === google.maps.GeocoderStatus.OK) {
+                    resultsMap.setCenter(results[0].geometry.location);
+                    var marker = new google.maps.Marker({
+                      map: resultsMap,
+                      position: results[0].geometry.location
+                    });
+                  } else {
+                    alert('Geocode was not successful for the following reason: ' + status);
+                  }
+                });
+              }
+          </code>
+        </pre>
+      <div>
+        <h3>Conclusion</h3>
+        The Google Map API is an extremely powerful tool. The <a href="https://developers.google.com/maps/documentation/javascript/3.exp/reference">Reference Guide</a> contains
+        substantial information regarding its use and it is clear that this could be used to develop some pretty amazing applications.There are thousands of <a href="https://www.publicapis.com/">Public Api's</a> that
+        can be used to develop applications. I believe that API's are the future of the web. The ability to utilize these applications serve as a a major opportunity for developers and businesses to harness their power.
+  </article>
+
+</main>
+{% endblock %}

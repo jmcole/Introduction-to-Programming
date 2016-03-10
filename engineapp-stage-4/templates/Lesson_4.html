@@ -1,0 +1,385 @@
+{% extends "templates/base.html" %}
+{% block content %}
+
+<header class="header">
+  <a name="Lesson 4"></a>
+  <h1>Allow Comments</h1>
+</header>
+  <article><!--Lesson 4.1-->
+    <h2 class="section-title">Introduction to Networks</h2>
+      <section class="section">
+        <div>
+          <h3><b>Network</b></h3>
+            A <em>network</em> is a group of entities that can communicate, even
+            though they are not all directly connected.
+        </div>
+        <div>
+          <h3><b>Latency</b></h3>
+            Time it takes message to get from source to destination.
+        </div>
+        <div>
+          <h3><b>Bandwidth</b></h3>
+            Amount of information that can be transmitted per unit of time.
+        </div>
+        <div>
+          <h3><b>Bit</b></h3>
+            Smallest unit of information
+        </div>
+        <div>
+          <h3><b>Protocol</b></h3>
+            A set of rules that people agree to that tell you
+            how two entities can communicate with each other.<em>HTTP</em>
+            is the protool used in the world wide web.
+        </div>
+        <div>
+          <h3><b>Making a Network</b></h3>
+          <ol>
+            <li>Way to encode and interpret messages</li>
+            <li>Way to route messages</li>
+            <li>Rules for deciding who gets to use resources.</li>
+      </section>
+  </article><!--Lesson 4.1-->
+  <article><!--Lesson 4.2-->
+      <h2 class="section-title">Making the Internet Work for You</h2>
+      <section class="section">
+        <div>
+          <h3><b>HTML</b></h3>
+            <em>Hyper Text Markup Language</em> is the language of the internet. HTML is interpreted by a computer's browser. These documents reside on servers. When a user accesses a webpage their computer sends an HTTP request to the server. The server finds the document and sends it across the internet where it is interpreted by the user's browser. The web is a collection of HTML documents. There are approximately 30 billion pages on the World Wide Web.
+            <p><b>HTML Documents</b></p>
+            <ul>
+              <li>DOCTYPE-HTML5 uses the string "HTML"</li>
+              <li>&lthtml&gt opening tag</li>
+              <li>head-contains meta-data and Javascript and CSS. Title of page</li>
+              <li>body-Main content of document</li>
+              <li>&lt/html&gt closing tag</li>
+            </ul>
+        </div>
+        <div>
+          <h3><b>URL's</b></h3>
+            <b>http://www.udacity.com/about</b>
+            <ul>
+              <li>protocol-http, https, ftp</li>
+              <li>host-www.udacity.com</li>
+              <li>path-/about</li>
+            </ul>
+        </div>
+        <div>
+          <h3><b>Query Parameters(get Parameters)</b></h3>
+          <ul>
+            <li>name=value</li>
+            <li>1st value gets a ?</li>
+            <li>2nd value gets a &</li>
+            <li># = fragment (not sent to a server)</li>
+            <li>Port = :8080 (default is 80)</li>
+          </ul>
+        <div>
+          <h3><b>HTTP Request</b></h3>
+          When a browser requests a website, the browser sends a get request along with headers to the server. The get
+          request is comprised of three parts.<br>
+          <em>GET/FOO HTTP/1.1</em>-request line
+          <ol>
+            <li>GET-is the method, POST will also be used in the class</li>
+            <li>/foo-path used for making the request</li>
+            <li>http/1.1-version 1.0 will also be discussed</li>
+          </ol>
+          GET is the most common method for requesting information from a server.<br>
+          Headers are also sent along with the request.<br>
+          <ul>
+            <li>Headers are in the form name:value</li>
+            <li>host:www.example.com from the url. Required in 1.1. Servers may have multiple names</li>
+            <li>user-agent: describes who is making the request, generally the browser</li>
+        </div>
+        <div>
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/ULofYLWKhvc" frameborder="0" allowfullscreen></iframe>
+        </div>
+        <div>
+          <h3><b>HTTP Response</b></h3>
+          After receiving a request the server will respond back to the user.
+          <em>http/1.1 200 ok</em> - This is a status line.
+          <ol>
+            <li> http/1.1 - version</li>
+            <li> 200 - status</li>
+            <li> ok - Reason phrase</li>
+          </ol>
+          Common staus codes
+          <ol>
+            <li>200 = OK
+            <li>302 = found</li>
+            <li>404 = not found (browser side error)</li>
+            <li>500 = Server error (server side error)</li>
+          </ol>
+          Headers are also included in the response.
+          <ul>
+            <li>Date:tue march 2012 04:33:33 GMT(when request happened)</li>
+            <li>Server:Apache 2.2.3(not required and not recomended)</li>
+            <li>Content-Type:text/html;</li>
+            <li>Content-Length:1539</li>
+          </ul>
+        </div>
+        <div>
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/1Zkd66tZQIA" frameborder="0" allowfullscreen></iframe>
+        </div>
+        <div>
+          <h3><b>Servers</b></h3>
+          Purpose: respond to HTTP request<br>
+          Two types of responses
+          <ol>
+            <li>Static-pre-written the server just returns- images</li>
+            <li>Dynamic-requests- request that are bult on the fly by web applications</li>
+          </ol>
+        </div>
+      </section>
+  </article><!--Lesson 4.2-->
+  <article><!--Lesson 4.3-->
+      <section class="section">
+        <div>
+          <h3><b>Forms</b></h3>
+            How to get data from our browser to a webserver.
+            <pre>
+              A basic form in HTML looks like this.
+              <code>
+                &ltform action="/foo"&gt
+                  &ltlabel&gt
+                    Form Name
+                    &ltinput name="q"&gt
+                    &ltinput type="submit"&gt
+                  &lt/label&gt
+                &lt/form&gt
+              </code>
+            </pre>
+            <b>index name</b>-allows the server differentiate what form the data came from.<br>
+            <b>index type</b>-describes the type of input such as a submit button or radio button<br>
+              <ul>
+                <li>password-will "asterix" out the user's input</li>
+                <li>checkbox- will create a checkbox. Checked = on. Multiple checkboxes requires differant names</li>
+                <li>radio-creates a radio box. Checked = on. Multiple boxes can be grouped by giving them the same name.</li>
+              </ul>
+            <b>label</b>-displays the name of the form to the user<br>
+            <b>form action</b>-a URL where the data is sent<br>
+            <pre>
+              <b>Drop Down Menu</b>
+                <code>
+                  &ltform&gt
+                    &ltselect name="q"&gt
+                      &ltoption value="1"&gtone&lt/option&gt
+                      &ltoption&gttwo&lt/option&gt
+                      &ltoption&gtthree&lt/option&gt
+                    &lt/select&gt
+
+                    &ltbr&gt
+                    &ltinput type="submit"&gt
+                  &lt/form&gt
+                </code>
+              </pre>
+              A drop down menu restricts what a user can input. The <b>value option</b> allows for more desciptive text.
+        </div>
+      </section>
+  </article><!--Lesson 4.3-->
+  <article><!--Lesson 4.4-->
+      <section class="section">
+        <div>
+          <h3><b>Python Break Modules and Dictionaries</b></h3>
+            <b>Modulus Operator</b>
+            <ul>
+              <li>Modulus is represented by %</li>
+              <li>Modulus is the remainder of a divided number.</li>
+              <li>15 % 12 = 3
+        </div>
+        <div>
+          <b>Dictionaries</b></b>
+            Dictionaries in Python are comprised of key value pairs.
+            <ul>
+              <li><code>elements = {"hydrogen":1,"helium":2}</code></li>
+              <li>Dictionaries are mutable</li>
+              <li><code>print elements [helium]</code> would return 2</li>
+              <li><code>elements[lithium] = 3</code> adds lithium to the dictionary</li>
+              <li><code>print hydrogen in elements</code> results in True
+            </ul>
+            Video provides more information on Python Dictionaries<br>
+            <a href="https://plus.google.com/events/c72ie1a5nt2s5ciea6d0cg3vn00?authkey=CNG0vpOezYH7SA">Dictionary Video</a>
+            <div>
+              <iframe width="560" height="315" src="https://www.youtube.com/embed/Tne9hgBqCUY" frameborder="0" allowfullscreen></iframe>
+            </div>
+      </section>
+  </article><!--Lesson 4.4-->
+  <article><!--Lesson 4.5-->
+      <section class="section">
+        <div>
+          <h3><b>Working with App Engine</b></h3>
+            <pre>
+              <code>
+                   import webapp2
+
+                    class MainPage(webapp2.RequestHandler):
+                        def get(self):
+                            self.response.headers['Content-Type'] = 'text/plain'
+                            self.response.write('Hello, World!')
+
+                    app = webapp2.WSGIApplication([
+                        ('/', MainPage),
+                    ], debug=True)
+              </code>
+            </pre>
+            The url <code>'/'</code> maps to the <em>handler</em> <code>MainPage</code>.<br>
+            <code>MainPage</code>inherits from webapp2.RequestHandler.<br>
+            <code>self.response.headers</code> sets content to <code>text/plain</code>. The default is text/html.<br>
+            <code>self.response.write</code> will write "Hello, World".<br>
+            <p><h3>Method Get and Post</h3></p>
+            Default is "get"
+            <p><b>Get</b></p>
+            <ul>
+              <li>parameters in URL</li>
+              <li>used for fetching documents</li>
+              <li>maximum url length</li>
+              <li>ok to cache</li>
+              <li>shouldn't chamge the server
+            </ul>
+            <p><b>Post</b></p>
+            <ul>
+              <li>parameters in body</li>
+              <li>used for updating data</li>
+              <li>no max length</li>
+              <li>not ok to cache</li>
+              <li>ok to change server</li>
+            </ul>
+            Get is used when fetching a document or when it is ok to cache.
+        </div>
+        <div>
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/PNmji8qNL0s" frameborder="0" allowfullscreen></iframe>
+        </div>
+      </section>
+  </article><!--Lesson 4.5-->
+  <article><!--Lesson 4.6-->
+      <section class="section">
+        <div>
+          <h3><b>Validation</b></h3>
+            Validation ensures that the server receives clean data. Users can
+            inadvertantly or maliciously enter data, which can cause security problems.<br>
+            Websites can restrict what data a user enters.<br>
+
+            <p><b>Data Validation</b></p>
+            <ol>
+              <li> Verify the user's input</li>
+              <li> on error, render the form again</li>
+              <li> include error messages</li>
+            </ol>
+            <p><b>String Substitution</b></p>
+            %s is used in Python to substitute a variable into a string
+            <pre>
+              <code>
+                given_string = "I think %s is a perfectly normal thing to do in public."
+                def sub1(s):
+                  return given_string % s
+
+                print sub1("running")
+                # => "I think running is a perfectly normal thing to do in public."
+              </code>
+            </pre>
+            String substitution can also be done with multiple variables
+            <pre>
+              <code>
+                def sub2(s1, s2):
+                  return given_string2 % (s1,s2)
+
+                print sub2("running", "sleeping")
+                # => "I think running and sleeping are perfectly normal things to do in public."
+              </code>
+            </pre>
+            String substitution can also be done with a dictionary.
+            <pre>
+              <code>
+                given_string2 = "I'm %(nickname)s. My real name is %(name)s, but my friends call me %(nickname)s."
+                def sub_m(name, nickname):
+                    return given_string2 % {"name":name,"nickname":nickname}
+
+                print sub_m("Mike", "Goose")
+                # => "I'm Goose. My real name is Mike, but my friends call me Goose."
+              </code>
+            </pre>
+            <p><b>HTML Escaping</b></p>
+            HTML contains special characters such as &lt and &gt. HTML escaping allows these to be viewed as
+            regular characters, and not in HTML. <br>
+            Python inludes a special function for HTML escaping. This can be done by
+            importing the module cgi.
+            <pre>
+              <code>
+                import cgi
+                def escape_html(s):
+                  reurn cgi.escape(s, quote=True)
+                print escape_html('"hello, &=amp;"')
+              </code>
+            </pre>
+            <p><b>Redirection</b></p>
+            Redirection overcomes two problems. First, it allows you to share a success
+            link and it allows you to reload a page without an annoying message.
+            <ol>
+              <li> make a "thanks" handler</li>
+              <li> add the /thanks url</li>
+              <li> redirect to the /thanks url</li>
+            </ol>
+            In google app engine, redirect can be done with <code>self.redirect("/thanks")</code>
+
+        </div>
+      </section>
+  </article>
+  <article><!--Lesson 4.7-->
+      <section class="section">
+        <div>
+          <h3><b>Templates</b></h3>
+          A template library that can be used to build complicated strings(HTML)<br>
+          Jinja2 is a template library that is imported into Python.<br>
+          Benefits of Templates
+            <ul>
+              <li>Seperate differant types of code</li>
+              <li>make more readable code</li>
+              <li>more secure websites</li>
+              <li>html that is easier to modify</li>
+            </ul>
+            <a href="http://jinja.pocoo.org/">Jinja Website</a>
+            <p><b>Template Inheritance</b></p>
+            Template inheritance allows a web developer to reuse html code. Instead of writing
+            and re-writing the same html code. Template inheritance allows one template to include the header and
+            footer, that is shared between mulitple html documents, and sub-templates to fill in the content in the middle. When a
+            document inherits html, it reuses the html the web developer wrote for the parent.
+        </div>
+        <div>
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/Unl0dZ6p2xw" frameborder="0" allowfullscreen></iframe>
+        </div>
+      </section>
+  </article>
+  <article>
+    <section class="section">
+      <div>
+        <h3><b>Databases</b></h3>
+        A database is a program that stores and retrieves large amounts of
+        structured data. Queryind data by hand is tedious and error prone. Databases help
+        to eleminate error's and speed up queries.
+        <ul>
+          <li>SQL-Structured Query Language (SQL) -invented in 1970's</li>
+          <li>Select(SQL command to fetch data</li>
+        </ul>
+        <p><b>Indexes</b></p>
+        Just like an index in a book, it makes lookpups faster
+        <ul>
+          <li>Hashtables</li>
+          <li>Dictionaries used as indices</li>
+        </ul>
+        <p><b>ACID</b></p>
+        <ol>
+          <li>Atomicity = all parts of a transaction success or fail together</li>
+          <li>Consistency = the database will always be consistent (e.g. avoiding replication lag)</li>
+          <li>Isolation = no transaction can interfere with anothers (e.g. locking)</li>
+          <li>Durability = once the transaction is committed, it won't be lost (even if connectivity is lost)</li>
+        </ol>
+        <p><b>Google App Engine Data Store</b></p>
+        <ol>
+          <li>Tables ---> Entities</li>
+          <li>collumns are not fixed</li>
+          <li>all have an id</li>
+          <li>parents/ancestors</li>
+        </ol>
+      </div>
+    </section>
+  </article>
+
+{% endblock %}

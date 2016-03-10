@@ -1,0 +1,26 @@
+{% extends "templates/base.html" %}
+{% block content %}
+<article>
+  <h2>Comments</h2>
+  Please leave a comment.
+  <section class="comments">
+    {% autoescape true %}
+    <!--{% for greeting in greetings %}
+      {% if greeting.author %}
+        <b>{{ greeting.author.email }}
+          {% if user and user.user_id() == greeting.author.identity %}
+            (You)
+          {% endif %}
+        </b> wrote:
+      {% else %}-->
+       A commentor wrote:
+      <!--{% endif %}-->
+      <blockquote>{{ greeting.content }}</blockquote>
+    <!--{% endfor %}-->
+    {% endautoescape %}
+    <form action="/sign?guestbook_name={{ guestbook_name }}" method="post">
+      <div><textarea name="content" rows="10" cols="80"></textarea></div>
+      <div><input type="submit" value="Please Leave a Comment"></div>
+    </form>
+</article>
+{% endblock %}

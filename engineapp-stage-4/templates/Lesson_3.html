@@ -1,0 +1,225 @@
+{% extends "templates/base.html" %}
+{% block content %}
+
+<header class="header">
+  <a name="Lesson 3"></a>
+  <h1>The Power Of Abstraction</h1>
+</header>
+  <article><!--Lesson 3.1-->
+    <h2 class="section-title">Functions</h2>
+      <section class="section">
+        <div>
+          <h3>Python Standard Library</h3>
+          The Python Standard Library contains built-in functions that do not require the use of the import command.
+          Python also contains modules with built in functions that must be "imported" in order to be used. <a href="https://docs.python.org/2.7/library/intro.html">Python Standard Library</a>
+          A module is a file that contains functions or executable and can be <em>imported</em> into other modules or the main module.
+        </div>
+        <div>
+          <h3>Abstraction</h3>
+          Abstraction in programming is a way of managing complexity. The specific way a function works are hidden behind documentation and the details
+          are hidden from the programmer. This allows the programmer to focus on the program we want to write. <a href="http://en.wikipedia.org/wiki/Abstraction_%28computer_science%29">Wikipedia Article on Abstraction</a>
+        </div>
+        <div>
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/0w_rla7GodI" frameborder="0" allowfullscreen></iframe>
+        </div>
+        <div>
+          <h3>Take a Break Program</h3>
+          This program demonstrates the use of Python's Standard Library imported modules.
+          <pre>
+            <code>
+              import time
+              import webbrowser
+              total_breaks = 3
+              break_count = 0
+              print("This program started on "+time.ctime())
+              while(break count &lt; total_breaks):
+                time.sleep(10)
+                webbrowser.open("http://www.youtube.com/watch?v=dQw4w9WgXcQ")
+                break_count = break_count + 1
+            </code>
+          </pre>
+          <b>How Take a Break Operates</b>
+          <ol>
+            <li>import time and import webbrowser will import the modules from the Python Library</li>
+            <li>total_break = 3 will be used to break the While loop</li>
+            <li>break_count = 0 is used to set the value of the counter</li>
+            <li>time.ctime converts time since the epoch to a string representing the local time</li>
+            <li>While loop will run 3 times as determined by total_break and break_count</li>
+            <li>time.sleep suspends the execution of the program for the given number of seconds. <a href="https://docs.python.org/2.7/library/time.html#time.sleep">Documentation Link</a></li>
+            <li>webbrowser.open open the given link in the webrowser</li>
+            <li>Increments break_count by 1</li>
+          </ol>
+        </div>
+      </section><!-- lesson 3.2 -->
+  </article><!--Lesson 3.1-->
+  <article><!--Lesson 3.2-->
+    <h2 class="section-title">Use Classes</h2>
+      <section class="section">
+        <h3>Python Standard Library</h3>
+        <p>Within the Python Standard Library are files not only with functions, like in the previous section, there are also files with Classes.
+        Classes are neatly packaged boxes that put things together very well. The following is an example of the Python Module Turtle</p>
+        <pre>
+          <code>
+            brad = turtle.Turtle() # Creates an instance of the class "Turtle" named brad
+            brad.shape("turtle")   # Shape of a turtle
+            brad.color("yellow")   # Color will be yellow
+            brad.speed(2)          # Sets the speed
+          </code>
+        </pre>
+        <b>Class</b>- Think of it as a blueprint of a building.<br>
+        <b>Object</b> - Instances or examples of that blueprint.<br>
+        <p> When calling webbrowser.open() we are simply calling a function. When calling turtle.Turtle() it actually calls the init
+          function within turtle and creates space within memory that did not exist before.</p>
+      </section><!-- lesson 3.3 -->
+  </article><!--Lesson 3.2-->
+  <article><!--Lesson 3.3-->
+    <h2 class="section-title"> Use Classes - External Python Packages </h2>
+      <section class="section">
+        <h3>External Packages</h3>
+        Python programmers are not limited to just the Python Standard Library.
+        External Python Packages give users many more tools to use in their Python programs.<br>
+        Link to <a href= "https://pypi.python.org/pypi?%3Aaction=browse">Python External Libraries</a>
+        <p><b>Twilio</b> is an external Python package that sends a text message using code.</p>
+          <pre>
+            <code>
+              from twilio.rest import TwilioRestClient
+
+              # Your Account Sid and Auth Token from twilio.com/user/account
+              account_sid = "AC32a3c49700934481addd5ce1659f04d2"
+              auth_token  = "{{ auth_token }}"
+              client = TwilioRestClient(account_sid, auth_token)
+
+              message = client.messages.create(body="Jenny please?! I love you",
+                  to="+14159352345",    # Replace with your phone number
+                  from_="+14158141829") # Replace with your Twilio number
+              print message.sid
+            </code>
+          </pre>
+          <p>The example above uses the keyword <b>from</b>. from tells Python to import attributes from a specific module. In other words, when
+        a programmer writes <code>from twilio.rest</code> they are telling the computer that inside <code>twilio</code> there is a folder called <code>rest</code>
+        and inside that folder there is a class called <code>TwillioRestClient</code>. The <code>import</code> command tells the computer we are going to use that class inside our code.
+        The above example can also be written <code>from twilio import rest</code> and modifying line 5 to read <code>client = rest.TwilioRestClient(account_sid, auth_token)</code>
+        Like previous examples, when we use code like<code>client = TwilioRestClient()</code> we are saying that within Twilio there is a folder called rest.
+        and inside that folder is a Python file with a Class TwillioRestClient(): which calls a function "init" which is defined within that function. This
+        assigns space in memory for an object which in this example is called "client".</p>
+          <p> A class is a blueprint. The blueprint allows us to build multiple instances or objects. These objects can then do functions that are described within the Class.</p>
+      </section><!-- lesson 3.3b-->
+  </article><!--Lesson 3.3-->
+  <article><!--Lesson 3.4-->
+    <h2 class="section-title">Use Classes-Files</h2>
+      <section class="section">
+        <h3>Files as Objects</h3>
+        <div>
+          <p>Python can be used to create an object of a file or a file like object.</p>
+          <b>Opening a File</b>
+          <p> In <code>brad=turtle.Turtle()</code> brad is an object of turtle. Similarly, when
+            a programmer writes <code>quotes=open(file_location)</code>, open returns an object of the file type.
+          </div>
+          <div>
+            <b>Accessing a Website with Code</b>
+            <p>The Python Module <code>urllib</code> and its function<code>urlopen</code> can be used to make a connection to a website.
+              <pre>
+                <code>
+                  def check_profanity(text_to_check):
+                      connection = urllib.urlopen("http://www.wdyl.com/profanity?q="+text_to_check)
+                      output = connection.read()
+                      print(output)
+                      connection.close()
+                </code>
+              </pre>
+            <p> In the example code, <code>connection</code> is used to read a response from the website. This response <code>output</code> is printed. The connection is then closed.</p>
+            <p><b>Connecting all Three Lessons</b><br>
+              All three lessons in Module 3 creating an instance or an object of a class and then moving an object or reading a file or accessing a website.
+              Creating instances or objects and then using those objects is Object Oriented Programming, This allows a programmer to save a tremendous amount of time
+              and ensure consistent and quality code. In the same manner that <b>CSS</B> saves a programmer from needing to code style throughout their HTML document. OOP is a
+              major component of programming and the stepstone to managing complexity in programs (<b>abstraction</b>).</p>
+        </div>
+      </section><!--lesson 3.3c-->
+  </article><!--Lesson 3.4-->
+  <article><!--Lesson 3.5-->
+    <h2 class="section-title">Make Classes</h2>
+      <section class="section">
+        <h3>Creating Classes</h3>
+        <div>
+          Programmers are not limited to just classes that are found externally, or in the Python Standard Library. Programmers can make
+          classes to perform whatever function they need to do.
+        </div>
+        <div>
+          <p><b> Creating a Class</b></p>
+          <ol>
+            <li> Decide on how Class should be used and what parameters it needs.(oversimplified)</li>
+            <li> Create a new file to write your code for the class. File will be imported into your program like previous examples.
+            <li> Use Python keyword <code>class</code></li>
+            <li> Name the class and capitalize the first letter according to <a href="http://google-styleguide.googlecode.com/svn/trunk/pyguide.html"> Google Style Guide</a></li>
+            <li> Follow with (): <code>className():</code></li>
+          </ol>
+          <p><b>def_init_</b></p>
+          <ol>
+            <li> <code>def_init_(self):</code> is a special function (<b>Contructor</b>)within Python to initilize the newly created empty object.</li>
+            <li> <code>(self)</code> is the commonly used Python convention for referring to the instance's attribute.</li>
+            <li> Use <code>self</code> instead of another variable so that it is not mistaken for a local variable.</li>
+            <li> <code>self</code> is an instance variable, not a local variable.</li>
+          </ol>
+          <p><b>Using your Created Class</b></p>
+          <ol>
+            <li> <code>import class</code> into program</li>
+          </ol>
+          <p><b>Vocabulary Recap</b><p>
+          <ol>
+            <li><b>Class</b>- keyword allows us to make classes(blueprints). Class can have both data and methods.</li>
+            <li><b>Instances</b>are multiple versions of a class.</li>
+            <li>The <b>Constructor</b> <code>def_init_</code> initilaizes all of the data associated wih the instance.</li>
+            <li><code>self</code> is itself or the instance in question.</li>
+            <li><b>instance variables</b> are the variables associated with a specific instance. Unique to the object.</li>
+            <li><b>instance methods</b> are the functions within the class that are associated with an instance and have the first argument as <code>self</code>.</li>
+          </ol>
+        </div>
+        <div>
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/AjYOMk-4NIU" frameborder="0" allowfullscreen></iframe>
+        </div>
+      </section><!-- lesson 3.4 -->
+  </article><!--Lesson3.5-->
+  <article><!--Lesson 3.6-->
+    <h2 class="section-title">Make Classes- Advanced Topics</h2>
+      <section class="section">
+        <h3>Advanced Topics</h3>
+        <p><b>Class Variables</b></p>
+          <ol>
+            <li> Class variables are associated with the class, so they are available to all instances.</li>
+            <li> Class variables are before the <code>def_init_</code></li>
+            <li> Constant variables should be "all caps"</li>
+            <li> All classes come with pre-existing class variables in Python.</li>
+            <li> <code>_doc_</code> is a class variable that when used gives "documentaton" on the class</li>
+            <li> """ triple qoutes used at the beginning of the class will be called by the <code>_doc_</code></li>
+          </ol>
+        <p><b>Inheritence</b></p>
+          <ol>
+            <li>Inheritance allows code to reused through Child Classes "inheriting" traits from Parent Classes.</li>
+              <pre><code>
+                  Class Parent():
+                    def_init_(self,last_name,eye_color):
+                    self.last_name =last_name
+                    self.eye_color = eye_color
+                  class Child(Parent:) &lt;---------This creates the inheritance
+                    def_init_(self,last_name,eye_color,number_of_toys):
+                      parent._init_(self, last_name, eye_color)&lt;----------This inits the inheritance
+                      self.number_of_toys = number_of_toys
+              </code></pre>
+            <li> Writing code utilizing inheritance allows us to write intuitivley the way our brain works.</li>
+          </ol>
+        <p><b>Reusing Methods</b></p>
+          <ol>
+            <li> If a child inherits variables from the parent, it also inherits methods.</li>
+            <li> This means a method can be called for the child even though it is defined in the parent class.</li>
+            <li> This allows a programmer to reuse code.</li>
+            <li> If the same method is defined in the child it will "<b>method overide</b>" the parent class. In other words, the child method will be used instead of the parent method.</li>
+            <li> OOP is a way to structure code so that it is intuitive and clean, meaning that code is reused and logical. This allows
+                 programs to use less resources, be easier to troubleshoot and modify, and make them easier to design.</li>
+          </ol>
+        <div>
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/nVuuDbWORKk?list=PLAwxTw4SYaPnYajEbZvqtcVWQ6XGhvtOW" frameborder="0" allowfullscreen></iframe>
+        </div>
+      </section><!--lesson 3.6-->
+  </article><!--Lesson 3.7-->
+
+  {% endblock %}
