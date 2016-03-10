@@ -1,0 +1,60 @@
+
+h1 {
+    text-align: center;
+    color: #000000
+}
+
+h2 {
+    text-align: center;
+    color: #000000
+}
+
+
+body {
+    font-family: Gotham
+}
+
+.main {
+    background-color: #B6AEA1;
+    border-radius: 20px;
+    color: Black;
+    padding: 10px;
+}
+
+
+.section {
+    background-color: #CBCBC1;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 20px;
+    color: black;
+}
+
+code {
+    color: #333;
+    background-color: #eaeaea;
+    border: 1px solid #dcdcdc;
+    padding: 0 0.25em;
+    font-family: Inconsolata, monospace;
+}
+
+pre code {
+    display: block;
+    padding: 0.5em;
+    margin: 0 0 1em;
+}
+
+h3 {
+    font-size: 20px;
+    margin: 8px;
+    text-align: left;
+    color: #000000
+}
+
+.header {
+    background-color: #FFFFFF;
+    border-radius: 20px;
+    color: Black;
+    margin: 10px;
+    padding: 10px;
+}
